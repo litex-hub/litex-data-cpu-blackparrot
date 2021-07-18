@@ -1,6 +1,14 @@
 #!/bin/bash
+cd pythondata_cpu_blackparrot/system_verilog/
+rm -rf black-parrot
+git clone https://github.com/black-parrot/black-parrot.git
+cd black-parrot
+git checkout top_dev
+git submodule update --init external/basejump_stl
+git submodule update --init external/HardFloat
+
 ## Set common variables
-BP=$(dirname $(dirname ${BASH_SOURCE[0]}))/black-parrot
+BP=$PWD
 BP_LITEX_DIR=$BP/bp_litex
 
 BP_COMMON_DIR=$BP/bp_common
